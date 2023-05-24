@@ -1,0 +1,130 @@
+.header {
+
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    width: 100%;
+
+    padding: var(--header-padding-y) var(--header-padding-x);
+    // min-height: calc(var(--header-inner-height) + 2 * var(--header-padding-y));
+
+    // Variables
+    --header-padding-y: 40px;
+    --header-padding-x: 0;
+    // --header-inner-height: 80px;
+
+    animation: fade .10s ease 1;
+
+    @include tablet {
+        --header-padding-y: 13px;
+        --header-padding-x: 0;
+        // --header-inner-height: 80px;
+    }
+
+    &.scrolled {
+        background: #fff;
+        box-shadow: 0 3px 6px rgba(20, 21, 27, .2);
+
+        --navbar-scrolled-c: rgba(0, 0, 0, .7);
+        --logo-scrolled-c: #000;
+
+        transition: all .3s ease;
+
+        --header-padding-y: 12px;
+
+        @include laptop {
+            --header-padding-y: 10px;
+        }
+        @include tablet {
+            // --header-padding-y: 10px;
+        }
+
+        .logo {
+            max-width: 150px;
+            transition: all .3s ease;  
+                
+            @include laptop {
+                max-width: 140px;
+            }
+            @include phone-big {
+                max-width: 120px;
+            }
+        
+        }
+
+        .btn {
+            color: #1C1B1E;
+            border: 1px solid #1C1B1E;
+
+            &:hover {
+                color: #fff;
+                border: 1px solid #fff;
+    
+                transition: border .1s ease;
+            }
+        }
+
+        .navbar__list-wrapper:nth-child(1) {
+            display: none;
+        }
+    }
+
+    &.hide {
+        --header-padding-y: 6px;
+
+        @include laptop {
+            --header-padding-y: 7px;
+        }
+        @include tablet {
+            // --header-padding-y: 7px;
+        }
+        .logo {
+            max-width: 130px;   
+            
+            @include laptop {
+                max-width: 130px;
+            }
+            @include phone-big {
+                max-width: 100px;
+            }
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        height: 100%;
+    }
+
+    &__column {
+        flex-shrink: 1;
+        flex-grow: 0;
+
+        height: 100%;
+
+        &_stretch {
+            flex-grow: 1;
+        }
+    }
+
+    &__navbar {
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+}
+
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

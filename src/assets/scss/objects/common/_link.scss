@@ -1,0 +1,51 @@
+.link {
+    position: relative;
+
+    display: block;
+
+    padding: 9px;
+
+    color: var(--c-dark1);
+
+    &:hover, &:focus {
+        color: var(--c-link-focus);
+
+        transition: all .2s ease;
+    }
+    &:active {
+        color: var(--c-link-active);
+        text-shadow: -2px -2px 3px rgba(0, 0, 0, .2);
+
+        transition: all .05s ease;
+    }
+
+    &:after {
+        content: '';
+
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+
+        width: 0;
+        height: 2px;
+
+        background: var(--c-link-focus);
+
+        transform: translateX(-50%);
+
+        transition: .1s width ease;
+    }
+    &:hover:after,
+    &:focus:after {
+        width: calc(100% - 18px);
+
+        transition: .2s width ease;
+    }
+    &_accent {
+        color: var(--c-link);
+
+        &:hover {
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, .2);
+        }
+    }
+}

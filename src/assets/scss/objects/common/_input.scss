@@ -1,0 +1,70 @@
+.input {
+    padding: 16px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    background: #FFFFFF;
+
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000;
+
+    @include laptop {
+        padding: 13px 20px;
+
+        font-size: 18px;
+    }
+
+    &:hover {
+        border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    &:focus, &:active {
+        border: 1px solid var(--c-active);
+    }
+    &::placeholder {
+        color: #909090;
+    }
+
+    &-prepend {
+        position: relative;
+
+        .input {
+            padding-left: 120px;
+            padding-right: 10px;
+
+            @include laptop {
+                padding-left: 115px;
+            }
+        }
+    }
+}
+
+.textarea {
+    padding: 16px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    background: #FFFFFF;
+
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000;
+
+    &:hover {
+        border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    &:focus, &:active {
+        border: 1px solid var(--c-active);
+    }
+    &::placeholder {
+        color: #909090;
+    }
+}

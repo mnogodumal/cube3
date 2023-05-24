@@ -1,0 +1,92 @@
+.howto-item {
+    position: relative;
+
+    &:hover {
+        .howto-item__label {
+
+            box-shadow: inset 1px 1px 4px (23, 23, 23, .1);
+            
+            transition: .2s all cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        
+            &:before {
+                width: 94px;
+                height: 94px;
+
+                box-shadow: 0 0 9px rgba(23, 23, 23, .1);
+
+                transition: .2s all cubic-bezier(0.6, -0.28, 0.735, 0.045)
+            }
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: -27px;
+        left: -50px;
+        z-index: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+
+        background: #F8F8F8;
+
+        @include phone-big {
+            top: -20px;
+            left: 5px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+
+            display: block;
+
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+
+            background-color: #fff;
+
+            transform: translate(-50%, -50%);
+
+            transition: .4s all cubic-bezier(0.6, -0.28, 0.735, 0.045)
+
+        }
+    }
+
+    &__number {
+        position: relative;
+        z-index: 3;
+
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 1;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        color: #AAD300;
+    }
+
+    &__plain-text {
+        position: relative;
+        z-index: 2;
+
+        padding-top: 68px;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #000000;
+
+        @include laptop {
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.about-item {
+
+    @include phone-big {
+        margin-bottom: 60px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__header {
+        min-height: 135px;
+
+        @include laptop {
+            min-height: 100px;
+        }
+    }
+
+    &__divider {
+        margin-bottom: 30px;
+
+        @include phone-big {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        @include phone {
+            // width: 100%;
+        }
+    }
+
+    &__img {
+        @include tablet {
+            transform: scale(0.8)
+        }
+        @include phone-big {
+            transform: scale(.75)
+        }
+    }
+}

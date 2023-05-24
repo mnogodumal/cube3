@@ -1,0 +1,90 @@
+.list {
+
+
+    &__item {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        min-height: 40px;
+        padding-left: 68px;
+        margin-bottom: 20px;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #000000;
+
+        @include laptop {
+            font-size: 14px;
+        }
+        @include tablet {
+            padding-left: 55px;
+        }
+        @include phone-big {
+            min-height: 30px;
+            margin-bottom: 15px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: 1;
+
+            display: block;
+
+            transform: translateY(-50%);
+        }
+
+        &::before {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+
+            background: #F8F8F8;
+
+            @include phone-big {
+                width: 30px;
+                height: 30px;
+            }
+
+            // transform-origin: center center;
+            // transform-box: fill-box;
+            // animation: pulsar 6s ease-in-out  infinite;
+        }
+
+        &::after {
+            left: 20px;
+            z-index: 2;
+            
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+
+            background: #AAD300;
+
+            transform: translate(-50%, -50%);
+
+            @include phone-big {
+                left: 15px;
+
+                width: 10px;
+                height: 10px;
+            }
+
+            // transform-origin: center center;
+            // transform-box: fill-box;
+            // animation: pulsar 6s ease-in-out  infinite;
+        }
+    }
+}

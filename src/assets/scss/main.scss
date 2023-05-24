@@ -1,0 +1,434 @@
+@charset 'UTF-8'; // set encoding to most common type
+
+
+/* SCSS utilities
+   ========================================================================== */
+
+/**
+ * 1 - mixins and scss functions
+ * 2 - variables
+ * 3 - media breakpoints/media mixins
+ */
+
+@import 'utils/media-queries'; /* 1 */
+@import 'utils/vars'; /* 2 */
+@import 'utils/mixins'; /* 3 */
+
+/* Complex reset
+   ========================================================================== */
+
+/**
+ * 1 - normalize.css https://github.com/necolas/normalize.css/
+ * 2 - my custom reset file
+ */
+
+@import 'normalize.css'; /* 1 */
+@import 'utils/custom-reset'; /* 2 */
+
+/* Fonts
+   ========================================================================== */
+
+/**
+ * 1 - font mixins
+ */
+
+@import 'utils/fonts'; /* 1 */
+
+/* Support
+   ========================================================================== */
+ 
+/**
+ * 1 - main/root/utilities tags
+ * 2 - styles for print
+ */
+@import 'utils/layouts'; /* 1 */
+@import 'utils/print'; /* 2 */
+
+
+
+/* Objects/blocks
+   ========================================================================== */
+
+@import 'objects/common/button';
+@import 'objects/common/input';
+@import 'objects/common/link';
+@import 'objects/common/title';
+@import 'objects/common/list';
+
+
+@import 'objects/common/header';
+@import 'objects/common/footer';
+@import 'objects/about-item';
+@import 'objects/pluses-item';
+@import 'objects/howto-item';
+@import 'objects/case-item';
+@import 'objects/feed-form';
+@import 'objects/custom-select';
+
+
+@import '../components/Logo/logo';
+@import '../components/Navbar/navbar';
+@import '../components/Logo/logo';
+
+
+
+
+/* Styles
+   ========================================================================== */
+
+body {
+
+   font-family: var(--f-family-global);
+   line-height: var(--f-lh-global);
+   color: var(--f-color-global);
+
+   font-size: 15px;
+
+   @include laptop {
+      font-size: 14px;
+   }
+   @include tablet {
+      //  font-size: 12px;       
+   }
+   @include phone-big {
+      //  font-size: 14px;       
+   }
+}
+
+
+.hero {
+   margin-top: 130px;
+   padding-top: 100px;
+   padding-bottom: 100px;
+
+   transition: .5s padding ease;
+
+   @include tablet {
+      padding-top: 80px;
+      padding-bottom: 50px;
+   }
+
+   @include phone-big {
+         margin-top: 75px;
+         padding-top: 75px;
+
+         min-height: 50vh;
+   }
+
+   &__wrapper {
+      max-width: 488px;
+
+      @include laptop {
+         max-width: 404px;
+      }
+      @include tablet {
+         max-width: 50%;
+      }
+      @include phone-big {
+         max-width: 100%;
+      }
+   }
+
+   &__plain-text {
+      margin-bottom: 70px;
+
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 2;
+      color: #000000;
+
+      @include laptop {
+         margin-bottom: 50px;
+
+         font-size: 14px;
+      }
+   }
+   &__img {
+
+      animation: fade-left .5s ease 1;
+
+      @include tablet-alt {
+         position: absolute;
+         top: -87px;
+         right: 0;
+         z-index: 2;
+   
+         user-select: none;
+         pointer-events: none;
+      }
+
+      @include laptop {
+         width: 50%;
+      }
+
+      @include tablet {
+         top: -25px;
+         right: -30px;
+
+         width: 50%;
+      }
+
+      @include phone-big {
+         // display: block;
+         // width: 70%;
+         // // margin-left: auto;
+         // margin-right: auto;
+         // margin-top: 80px;
+
+         display: none;
+      }
+   }
+}
+
+.about {
+   padding-top: 100px;
+
+
+   @include tablet {
+      padding-top: 50px;
+   }
+
+   &__wrapper {
+      @include tablet-alt {
+         display: flex;
+      }
+   }
+
+   &__header {
+      max-width: 385px;
+
+      @include laptop {
+         margin-right: 120px;
+      }
+      @include tablet {
+         margin-right: 50px;
+      }
+      @include phone-big {
+        margin-right: 0;
+        max-width: 100%;
+      }
+   }
+
+   &__body {
+      flex-grow: 1;
+
+      padding-top: 40px;
+
+      @include tablet {
+         padding-top: 20px;
+      }
+      @include phone-big {
+         padding-top: 0;
+      }
+   }
+
+   &__body-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 68px;
+
+      margin-bottom: 50px;
+
+      @include laptop {
+         column-gap: 40px;
+      }
+      @include phone-big {
+         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+
+         margin-bottom: 40px;
+      }
+   }
+
+   &__title {
+      margin-bottom: 70px;
+
+      text-align: left;
+
+      @include phone-big {
+         margin-bottom: 40px;
+      }
+   }
+
+   &__btn {
+      display: none;
+   }
+
+   &__case {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+   }
+
+   &__case-item {
+      flex: 1 0 auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      filter: grayscale(1);
+      opacity: .3;
+
+      @include phone-big {
+         transform: scale(0.7);
+      }
+
+      &:hover, &:focus {
+         filter: grayscale(0);
+         opacity: 1;
+
+         transition: .3s all ease;
+
+         transform: scale(1.1);
+
+         @include phone-big {
+            transform: scale(0.8);
+         }
+      }
+   }
+
+   &__case-img {
+      // pointer-events: none;
+      user-select: none;
+   }
+}
+
+.pluses {
+
+   &__title {
+      margin-bottom: 80px;
+   }
+}
+
+.howto {
+   &__wrapper {
+      @include tablet-alt {
+         display: flex;
+      }
+   }
+
+   &__header {
+      max-width: 385px;
+
+      @include phone-big {
+         margin-bottom: 60px;
+      }
+   }
+
+   &__title {
+      padding-right: 85px;
+
+      text-align: left;
+   }
+
+   &__body {
+      display: grid;
+      grid-template-columns: repeat(3, 210px);
+      gap: 55px 88px;
+      justify-content: end;
+      
+      width: 100%;
+      
+      @include laptop {
+         grid-template-columns: repeat(3, 170px);
+         gap: 40px 55px;
+      }
+
+      @include tablet {
+         grid-template-columns: repeat(2, 170px);
+      }
+
+      @include phone-big {
+         grid-template-columns: repeat(2, 1fr);
+         justify-content: center;
+      }
+   }
+}
+
+.cases {
+
+   &__title {
+      @include phone-big {
+         text-align: center;
+      }
+   }
+
+   &__subtitle {
+      margin-bottom: 40px;
+   }
+
+   &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 32px;
+
+      @include laptop {
+         column-gap: 25px;
+      }
+      @include tablet {
+         column-gap: 15px;
+      }
+      @include phone-big {
+         display: block;
+      }
+   }
+
+   &__btn {
+      margin: 0 auto;
+      margin-top: 60px;
+
+      @include laptop {
+         margin-top: 40px;
+      }
+   }
+}
+
+.feed {
+
+   &__wrapper {
+      padding: 60px 10px;
+      border-radius: 10px;
+
+      background: linear-gradient(239.94deg, #A2C901 66.25%, #D2F703 98.75%);
+
+      @include laptop {
+         padding: 40px 10px;
+      }
+
+      @include phone-big {
+         padding: 25px 25px;
+      }
+   }
+
+   &__title {
+      margin-bottom: 60px;
+
+      color: #fff;
+
+      @include laptop {
+         margin-bottom: 40px;
+      }
+   }
+}
+
+
+@keyframes fade-left {
+   0% {
+      opacity: 0;
+      transform: translateX(100%)
+   }
+   50% {
+      opacity: 0;
+      transform: translateX(40%)
+   }
+   100% {
+      opacity: 1;
+      transform: none;
+   }
+}
+
+
+
+

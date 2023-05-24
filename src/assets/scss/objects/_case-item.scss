@@ -1,0 +1,112 @@
+.case-item {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+
+    max-width: 600px;
+
+    background-color: #fff;
+
+    transition: .2s all cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+    @include phone-big {
+        margin-bottom: 40px;
+    }
+
+    &:hover {
+        transform: translateY(-15px);
+        box-shadow: 3px 3px 13px rgba(122, 122, 122, 0.1);
+
+        transition: .3s all cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    }
+
+    @include tablet {
+        border-radius: 3px;
+    }
+
+    &__link-item {
+        display: block;
+    }
+
+    &__glass {
+        aspect-ratio: 1.92;
+        border-radius: 5px 5px 0 0;
+        
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &__body {
+        padding: 30px 30px 20px;
+
+        @include laptop {
+            padding: 20px 20px 15px;
+        }
+        @include tablet {
+            padding: 10px 15px 10px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 10px;
+
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 1.5;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        color: #000000;
+
+        @include laptop {
+            font-size: 16px;
+        }
+        @include tablet {
+            margin-bottom: 5px;
+
+            font-size: 14px;
+        }
+    }
+
+    &__plain-text {
+        margin-bottom: 30px;
+
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.5;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        color: #000000;
+
+        @include laptop {
+            margin-bottom: 20px;
+            
+            font-size: 14px;   
+        }
+        @include tablet {
+            margin-bottom: 10px;
+
+            font-size: 12px;
+        }
+    }
+
+    &__tags {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 1.5;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        color: #919191;
+
+        @include laptop {
+            font-size: 11px;   
+        }
+        @include tablet {
+            font-size: 10px;
+        }
+    }
+}
+
